@@ -19,9 +19,12 @@ def user_directory_path(instance, filename):
     return f'images/user_{instance.user.id}/{filename}'
 
 class Student(models.Model):
-    class GENDER_CHOICES(models.Choices):
-        male =       ('m', 'male')
-        female =    ('f', 'female')
+    Male = 'M'
+    Female = 'F'
+    GENDER_CHOICES = (
+        (Male, 'Male'),
+        (Female, 'Female'),
+    )
         
     name = models.CharField(max_length=255)
     parent = models.ForeignKey(Parent, on_delete=models.CASCADE)
@@ -39,13 +42,16 @@ class Student(models.Model):
 
 
 class Teacher(models.Model):
-    class GENDER_CHOICES(models.Choices):
-        male =       ('m', 'male')
-        female =    ('f', 'female')
+    Male = 'M'
+    Female = 'F'
+    GENDER_CHOICES = (
+        (Male, 'Male'),
+        (Female, 'Female'),
+    )
 
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to=user_directory_path, max_length=None, blank=True, null=True)
-    gender = models.CharField(choices=GENDER_CHOICES.choices ,max_length=25)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=25)
 
     class Meta:
         verbose_name = 'Teacher'
