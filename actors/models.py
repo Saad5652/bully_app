@@ -2,10 +2,9 @@ from django.db import models
 
 from entities.models import Division
 
-
 class Parent(models.Model):
     name = models.CharField(max_length=255)
-    phone = models.PhoneNumberField()
+    phone_number = models.CharField(max_length=255)
     
 
     class Meta:
