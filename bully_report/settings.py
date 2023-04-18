@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #  user apps
     'actors',
     'entities',
+    'reports',
 ]
 
 MIDDLEWARE = [

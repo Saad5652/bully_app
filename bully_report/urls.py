@@ -9,6 +9,7 @@ urlpatterns = [
     path('api/v1/auth/', include('rest_framework.urls')),
     path('api/v1/', include('actors.urls')),
     path('api/v1/', include('entities.urls')),
+    path('api/v1/', include('reports.urls')),
 
     path('admin/', admin.site.urls), 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
