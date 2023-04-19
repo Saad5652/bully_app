@@ -8,9 +8,8 @@ class SectionSerializer(serializers.ModelSerializer):
         model = Section
         fields = ['title',]
 
+
 class DivisionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Division
         fields = ['title', 'section',]
-
-
