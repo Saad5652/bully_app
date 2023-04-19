@@ -1,9 +1,5 @@
 from django.db import models
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
-
-from actors.models import Student
-
+from actors.models import Student, Teacher
 
 
 class Report(models.Model):
@@ -18,10 +14,10 @@ class Report(models.Model):
 
     description = models.TextField()
 
-    # Below the mandatory fields for generic relation
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey()
+    culprit_teacher = models.ForeignKey(
+        Teacher, on_delete=models.CASCADE, blank=True, null=True, related_name="crimes")
+    culprit_student = models.ForeignKey(
+        Student, on_delete=models.CASCADE, blank=True, null=True, related_name="crimes")
 
     victim = models.ForeignKey(Student, on_delete=models.CASCADE)
 
