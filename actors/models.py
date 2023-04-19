@@ -20,8 +20,8 @@ def user_directory_path(instance, filename):
 
 
 class Student(models.Model):
-    Male = 'M'
-    Female = 'F'
+    Male = 'male'
+    Female = 'female'
     GENDER_CHOICES = (
         (Male, 'Male'),
         (Female, 'Female'),
@@ -43,8 +43,8 @@ class Student(models.Model):
 
 
 class Teacher(models.Model):
-    Male = 'M'
-    Female = 'F'
+    Male = 'male'
+    Female = 'female'
     GENDER_CHOICES = (
         (Male, 'Male'),
         (Female, 'Female'),

@@ -3,14 +3,14 @@ from actors.models import Student, Teacher
 
 
 class Report(models.Model):
-    TEACHER = 'T'
-    STUDENT = 'S'
+    TEACHER = 'teacher'
+    STUDENT = 'student'
     CULPRIT_TYPES = (
         (TEACHER, 'Teacher'),
         (STUDENT, 'Student'),
     )
 
-    culprit_type = models.CharField(max_length=1, choices=CULPRIT_TYPES)
+    culprit_type = models.CharField(max_length=15, choices=CULPRIT_TYPES)
 
     description = models.TextField()
 
