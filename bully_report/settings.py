@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vu-f4s!p!*t#t))(!j6h*wst&51b@bet)v$-12n4w3ak4srjif
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party
-     'rest_framework',
+    'rest_framework',
+    'corsheaders',
 
     #  user apps
     'actors',
@@ -132,8 +133,13 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
 # STATIC FILES
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# CORS HEADERS
+
+# CORS_ALLOWED_ORIGINS = [
+#     "*",
+# ]
+CORS_ALLOW_ALL_ORIGINS = True
