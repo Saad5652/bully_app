@@ -2,10 +2,10 @@ from django.db import models
 
 from entities.models import Division
 
+
 class Parent(models.Model):
     name = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)
-    
 
     class Meta:
         verbose_name = 'Parent'
@@ -16,7 +16,8 @@ class Parent(models.Model):
 
 
 def user_directory_path(instance, filename):
-    return f'images/user_{instance.user.id}/{filename}'
+    return f'images/actors/{filename}'
+
 
 class Student(models.Model):
     Male = 'M'
@@ -25,13 +26,13 @@ class Student(models.Model):
         (Male, 'Male'),
         (Female, 'Female'),
     )
-        
+
     name = models.CharField(max_length=255)
     parent = models.ForeignKey(Parent, on_delete=models.CASCADE)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to=user_directory_path, max_length=None, blank=True, null=True)
-    gender = models.CharField(choices=GENDER_CHOICES ,max_length=25)
-
+    image = models.ImageField(
+        upload_to=user_directory_path, max_length=None, blank=True, null=True)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=25)
 
     class Meta:
         verbose_name = 'Student'
@@ -50,7 +51,8 @@ class Teacher(models.Model):
     )
 
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to=user_directory_path, max_length=None, blank=True, null=True)
+    image = models.ImageField(
+        upload_to=user_directory_path, max_length=None, blank=True, null=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=25)
 
     class Meta:
